@@ -1,0 +1,182 @@
+[gd_scene load_steps=27 format=3 uid="uid://dv8xe6lx7k4ha"]
+
+[ext_resource type="Script" path="res://Scripts/Currencies.gd" id="1_3dl5g"]
+[ext_resource type="Script" path="res://Scripts/Power.gd" id="3_g4mnw"]
+[ext_resource type="Texture2D" uid="uid://ddkihejtl8d0j" path="res://Levels/IMG_5319.PNG" id="3_yqj1y"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="4_f5u7j"]
+[ext_resource type="Texture2D" uid="uid://cqpjtprqfukbg" path="res://Player/player_spritesheet.png" id="5_q7ly2"]
+[ext_resource type="Texture2D" uid="uid://c5wlagerlyus8" path="res://Player/player_spritesheet_flipped.png" id="6_0opfu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig2v4"]
+texture = ExtResource("3_yqj1y")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/texture_offset = Vector2i(0, -512)
+1:0/0 = 0
+1:0/0/texture_offset = Vector2i(0, -512)
+0:1/0 = 0
+0:1/0/texture_offset = Vector2i(0, 256)
+1:1/0 = 0
+1:1/0/texture_offset = Vector2i(0, 256)
+2:1/0 = 0
+2:1/0/texture_offset = Vector2i(0, 256)
+0:2/size_in_atlas = Vector2i(1, 2)
+0:2/0 = 0
+0:2/0/texture_offset = Vector2i(0, 512)
+
+[sub_resource type="TileSet" id="TileSet_mgng4"]
+tile_shape = 1
+tile_size = Vector2i(512, 300)
+sources/3 = SubResource("TileSetAtlasSource_ig2v4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12h5c"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p780b"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmsc5"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plnu1"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpiyn"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt517"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46fre"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc08q"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(3584, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t7sj"]
+atlas = ExtResource("6_0opfu")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emx7l"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2gi5"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr4at"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmrk6"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(1536, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooby0"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(2048, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aw6c"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(2560, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkei0"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(3072, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1be6a"]
+atlas = ExtResource("5_q7ly2")
+region = Rect2(3584, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_scjcn"]
+animations = [{
+"frames": [SubResource("AtlasTexture_12h5c"), SubResource("AtlasTexture_p780b"), SubResource("AtlasTexture_bmsc5"), SubResource("AtlasTexture_plnu1"), SubResource("AtlasTexture_rpiyn"), SubResource("AtlasTexture_yt517"), SubResource("AtlasTexture_46fre"), SubResource("AtlasTexture_tc08q")],
+"loop": true,
+"name": &"dr",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_8t7sj")],
+"loop": true,
+"name": &"idle_dr",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_emx7l")],
+"loop": true,
+"name": &"idle_ul",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_emx7l"), SubResource("AtlasTexture_h2gi5"), SubResource("AtlasTexture_cr4at"), SubResource("AtlasTexture_jmrk6"), SubResource("AtlasTexture_ooby0"), SubResource("AtlasTexture_0aw6c"), SubResource("AtlasTexture_nkei0"), SubResource("AtlasTexture_1be6a")],
+"loop": true,
+"name": &"ul",
+"speed": 12.0
+}]
+
+[node name="Limbo" type="Node2D"]
+
+[node name="Money" type="Node" parent="."]
+script = ExtResource("1_3dl5g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Power" type="Node" parent="."]
+script = ExtResource("3_g4mnw")
+
+[node name="PowerDepreciation" type="Timer" parent="Power"]
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1426, -555)
+y_sort_enabled = true
+
+[node name="Map" type="TileMap" parent="Node2D"]
+position = Vector2(22.9995, 11)
+y_sort_enabled = true
+tile_set = SubResource("TileSet_mgng4")
+format = 2
+layer_0/name = "Floor"
+layer_0/tile_data = PackedInt32Array(0, 3, 0, -65536, 3, 0, -131071, 65539, 0, 131073, 65539, 0, 65537, 3, 0, 2, 65539, 0, -65534, 3, 0, -131070, 65539, 0, -65535, 3, 0, 65536, 3, 0, 1, 65539, 0, 3, 65539, 0, 65539, 3, 0, 131075, 65539, 0, 196610, 3, 0, 262146, 65539, 0, 196609, 3, 0, 131074, 65539, 0, 65538, 3, 0, 393219, 65539, 0, 327683, 3, 0, 262148, 65539, 0, 196612, 3, 0, 131077, 65539, 0, 65540, 3, 0, 5, 65539, 0, -65532, 3, 0, -131067, 65539, 0, -131068, 65539, 0, -196605, 3, 0, -262141, 65539, 0, -327677, 3, 0, -262142, 65539, 0, -327678, 3, 0, -196606, 3, 0, -131069, 65539, 0, -65533, 3, 0, 4, 65539, 0, -196604, 3, 0, -262140, 65539, 0, -196607, 3, 0, -196603, 3, 0, -262139, 65539, 0, -327676, 3, 0, -393212, 65539, 0, -458749, 3, 0, -393213, 65539, 0, 196611, 3, 0, 262147, 65539, 0, 327682, 3, 0, 131076, 65539, 0, 65541, 3, 0, 327684, 3, 0, 393220, 65539, 0, 458755, 3, 0, 262149, 65539, 0, 196613, 3, 0, 131078, 65539, 0, 720901, 3, 0, 655366, 3, 0, 589830, 3, 0, 524295, 3, 0, 458759, 3, 0, 393224, 3, 0, 327688, 3, 0, 262153, 3, 0, 196616, 3, 0, 131080, 65539, 0, 65543, 3, 0, 7, 65539, 0, -65530, 3, 0, -131066, 65539, 0, 524292, 65539, 0, 589828, 3, 0, 655365, 3, 0, -65531, 3, 0, 6, 65539, 0, 65542, 3, 0, 131079, 65539, 0, 196615, 3, 0, 262152, 65539, 0, 327687, 3, 0, 393223, 65539, 0, 458758, 3, 0, 524294, 65539, 0, 589829, 3, 0, 458757, 3, 0, 393222, 65539, 0, 327686, 3, 0, 262151, 65539, 0, 196614, 3, 0, 262150, 65539, 0, 327685, 3, 0, 524293, 65539, 0, 458756, 3, 0, 393221, 65539, 0, -524284, 65539, 0, -458748, 3, 0, -393211, 65539, 0, -327675, 3, 0, -262138, 65539, 0, -196602, 3, 0, -131065, 65539, 0, -65529, 3, 0, 8, 65539, 0, 65544, 3, 0, 131081, 65539, 0, 196617, 3, 0, 131082, 3, 0, 65545, 3, 0, 10, 65539, 0, 9, 65539, 0, -65528, 3, 0, -131064, 65539, 0, -196601, 3, 0, -262137, 65539, 0, -327674, 3, 0, -393210, 65539, 0, -458747, 3, 0, -524283, 65539, 0, -589820, 3, 0, -655355, 65539, 0, -589819, 3, 0, -524282, 65539, 0, -458746, 3, 0, -393209, 65539, 0, -327673, 3, 0, -262136, 65539, 0, -196600, 3, 0, -131063, 65539, 0, -65527, 3, 0, 65546, 3, 0)
+layer_1/name = "Counter"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(0, 131075, 1, 65536, 131075, 1, 131073, 131075, 1, 196609, 131075, 1, 262146, 131075, 1, 327682, 131075, 1, 393219, 131075, 1, 458755, 131075, 1, 524292, 131075, 1, 589828, 131075, 1, 655365, 131075, 1, 720901, 131075, 1, 655366, 131075, 1, 589830, 131075, 1, 524295, 131075, 1, 458759, 131075, 1, 393224, 131075, 1, 327688, 131075, 1, 262153, 131075, 1, 196617, 131075, 1, 131082, 131075, 1, 65546, 131075, 1, -589819, 65539, 1, -524282, 65539, 1, -458746, 65539, 1, -393209, 65539, 1, -327673, 65539, 1, -262136, 65539, 1, -196600, 65539, 1, -131063, 65539, 1, -65527, 65539, 1, 10, 65539, 1, -589820, 3, 1, -524284, 3, 1, -458749, 3, 1, -393213, 3, 1, -655355, 131075, 1, -65536, 3, 1, -131071, 3, 2, -327678, 3, 1, -262142, 3, 1, -196607, 3, 1)
+
+[node name="Player" type="Node2D" parent="Node2D/Map" node_paths=PackedStringArray("tilemap")]
+position = Vector2(3107.5, -182.5)
+scale = Vector2(2.5, 2.5)
+z_index = 1
+script = ExtResource("4_f5u7j")
+move_speed = 1000
+tilemap = NodePath("..")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Node2D/Map/Player"]
+scale = Vector2(0.6, 0.6)
+frames = SubResource("SpriteFrames_scjcn")
+animation = &"idle_ul"
+playing = true
+offset = Vector2(0, -200)
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/Map/Player"]
+current = true
+zoom = Vector2(0.3, 0.3)
+
+[connection signal="timeout" from="Power/PowerDepreciation" to="Power" method="_on_power_depreciation_timeout"]
