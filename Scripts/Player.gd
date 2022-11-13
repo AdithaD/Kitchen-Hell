@@ -5,6 +5,8 @@ extends Node2D
 
 @export var tilemap : TileMap
 
+@onready var game_map = get_parent()
+
 var direction : Vector2 = Vector2.ZERO
 var facing = Vector2i(-1, 1)
 # Called when the node enters the scene tree for the first time.
@@ -89,13 +91,20 @@ func _input(event):
 		var map_pos = tilemap.local_to_map(position)
 		var iso_facing = Vector2i(0 if facing.x == facing.y else 1 * -sign(facing.y), facing.y)
 		var target_pos = tilemap.local_to_map(position) + iso_facing
-		var cell = tilemap.get_cell_source_id(1, target_pos)
-		print(target_pos - map_pos)
-		if cell != -1:
-			var cell_data = tilemap.get_cell_tile_data(1, target_pos)
-			print(cell_data)
-			var ingredient = cell_data.get_custom_data_by_layer_id(0)
-			if ingredient != null:
-				print(ingredient)
-				$Hand.set_ingredient(ingredient)
-	
+		if $Hand.is_empty():
+			var cell = tilemap.get_cell_source_id(1, target_pos)
+			if cell != -1:
+				var cell_data = tilemap.get_cell_tile_data(1, target_pos)
+				var ingredient = cell_data.get_custom_data_by_layer_id(0)
+				if ingredient != null:
+					$Hand.set_ingredient(ingredient)
+				else:
+					var consumer = cell_data.get_custom_data_by_layer_id(1)
+					if consumer != null:
+						var returned_ingredient = game_map.try_retrieve(target_pos)
+						$Hand.set_ingredient(returned_ingredient)
+				
+		else:
+			if game_map.try_consume(target_pos, $Hand.current_ingredient):
+				$Hand.clear()
+			

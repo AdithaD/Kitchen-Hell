@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ctccevjs2red0"]
+
+[ext_resource type="Script" path="res://Scripts/Consumer.gd" id="1_cy6m8"]
+[ext_resource type="Resource" uid="uid://huf0t0qbwgi5" path="res://Resources/Recipes/recipe_sheesh_kebab.tres" id="1_rc5uv"]
+
+[resource]
+script = ExtResource("1_cy6m8")
+consumer_id = 0
+consumer_name = "Mixing Bowl"
+recipes = [ExtResource("1_rc5uv")]
+base_creation_time = 10

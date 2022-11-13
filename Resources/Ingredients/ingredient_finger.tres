@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dleo6gwo5t0b8"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_k0d7g"]
+[ext_resource type="Texture2D" uid="uid://wuixvqricufl" path="res://Resources/Ingredients/finger.png" id="2_or686"]
+
+[resource]
+script = ExtResource("1_k0d7g")
+ingredient_id = 1
+ingredient_name = "Finger"
+texture = ExtResource("2_or686")

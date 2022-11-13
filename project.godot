@@ -10,12 +10,24 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Resource",
+"class": &"Consumer",
+"language": &"GDScript",
+"path": "res://Scripts/Consumer.gd"
+}, {
+"base": "Resource",
 "class": &"Ingredient",
 "language": &"GDScript",
 "path": "res://Scripts/Ingredient.gd"
+}, {
+"base": "Resource",
+"class": &"Recipe",
+"language": &"GDScript",
+"path": "res://Scripts/Recipe.gd"
 }]
 _global_script_class_icons={
-"Ingredient": ""
+"Consumer": "",
+"Ingredient": "",
+"Recipe": ""
 }
 
 [application]

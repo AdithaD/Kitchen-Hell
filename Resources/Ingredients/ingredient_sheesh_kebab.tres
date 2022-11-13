@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://77binyk54i73"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_0r007"]
+[ext_resource type="Texture2D" uid="uid://cicvuo8swbfhw" path="res://Resources/Ingredients/IMG_5343(1).PNG" id="2_kt3ts"]
+
+[resource]
+script = ExtResource("1_0r007")
+ingredient_id = 2
+ingredient_name = "Sheesh Kebab"
+texture = ExtResource("2_kt3ts")

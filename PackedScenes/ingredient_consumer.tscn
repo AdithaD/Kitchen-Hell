@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://s34kx0twpoj8"]
+
+[ext_resource type="Script" path="res://Scripts/ConsumerEntity.gd" id="1_m14jb"]
+
+[node name="IngredientConsumer" type="Node2D"]
+z_index = 100
+script = ExtResource("1_m14jb")
+
+[node name="Control" type="VBoxContainer" parent="."]
+offset_left = -518.0
+offset_top = -644.0
+offset_right = 506.0
+offset_bottom = -388.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+custom_minimum_size = Vector2i(0, 80)
+layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 80.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+offset_top = 84.0
+offset_right = 1024.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2i(128, 128)
+layout_mode = 2
+offset_left = 250.0
+offset_right = 378.0
+offset_bottom = 128.0
+size_flags_vertical = 4
+ignore_texture_size = true
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2i(128, 128)
+layout_mode = 2
+offset_left = 382.0
+offset_right = 510.0
+offset_bottom = 128.0
+size_flags_vertical = 4
+ignore_texture_size = true
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2i(128, 128)
+layout_mode = 2
+offset_left = 514.0
+offset_right = 642.0
+offset_bottom = 128.0
+size_flags_vertical = 4
+ignore_texture_size = true
+
+[node name="TextureRect4" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2i(128, 128)
+layout_mode = 2
+offset_left = 646.0
+offset_right = 774.0
+offset_bottom = 128.0
+size_flags_vertical = 4
+ignore_texture_size = true
+
+[node name="CookTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CookTimer" to="." method="_on_timer_timeout"]

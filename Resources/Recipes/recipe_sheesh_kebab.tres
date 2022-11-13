@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://huf0t0qbwgi5"]
+
+[ext_resource type="Resource" path="res://Resources/Ingredients/ingredient_eyeball.tres" id="1_fekta"]
+[ext_resource type="Script" path="res://Scripts/Recipe.gd" id="1_hc15m"]
+[ext_resource type="Resource" uid="uid://dleo6gwo5t0b8" path="res://Resources/Ingredients/ingredient_finger.tres" id="2_uvc2d"]
+[ext_resource type="Resource" uid="uid://77binyk54i73" path="res://Resources/Ingredients/ingredient_sheesh_kebab.tres" id="3_457o3"]
+
+[resource]
+script = ExtResource("1_hc15m")
+inputs = [ExtResource("1_fekta"), ExtResource("2_uvc2d")]
+output = ExtResource("3_457o3")
