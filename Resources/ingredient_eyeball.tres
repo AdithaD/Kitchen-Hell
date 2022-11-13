@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cffbl7tmbqea6"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_k0d7g"]
+[ext_resource type="Texture2D" uid="uid://besu81mb48qn0" path="res://Resources/IMG_5345.PNG" id="2_jfy1w"]
+
+[resource]
+script = ExtResource("1_k0d7g")
+ingredient_id = null
+ingredient_name = "Eyeballs"
+texture = ExtResource("2_jfy1w")

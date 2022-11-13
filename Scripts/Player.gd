@@ -6,7 +6,7 @@ extends Node2D
 @export var tilemap : TileMap
 
 var direction : Vector2 = Vector2.ZERO
-var last_velocity = Vector2.ZERO
+var facing = Vector2i(-1, 1)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,13 +25,13 @@ func _process(delta):
 
 	pass
 func update_animation():
-		if last_velocity.length() > 0:
-			if last_velocity.y >= 0:
+		if facing.length() > 0:
+			if facing.y >= 0:
 				if direction.length() > 0:
 					$PlayerSprite.set_animation("dr")
 				else:
 					$PlayerSprite.set_animation("idle_dr")
-				if last_velocity.x < 0:
+				if facing.x < 0:
 					$PlayerSprite.flip_h = true
 				else:
 					$PlayerSprite.flip_h = false
@@ -40,7 +40,7 @@ func update_animation():
 					$PlayerSprite.set_animation("ul")
 				else:
 					$PlayerSprite.set_animation("idle_ul")
-				if last_velocity.x > 0:
+				if facing.x > 0:
 					$PlayerSprite.flip_h = true
 				else:
 					$PlayerSprite.flip_h = false
@@ -71,7 +71,6 @@ func _input(event):
 		# 1   1 -30
 		
 		angle += 30 * -sign(velocity.y) * -sign(velocity.x)
-		print(angle)
 			
 		direction = Vector2.RIGHT.rotated(deg_to_rad(angle))
 	else:
@@ -79,10 +78,24 @@ func _input(event):
 		
 	if velocity.length() > 0:
 		if velocity.x != 0:
-			last_velocity.x = velocity.x
+			facing.x = velocity.x
 		if velocity.y != 0:
-			last_velocity.y = velocity.y
+			facing.y = velocity.y
 			
 	# direction = velocity.normalized()
 	update_animation()
+	
+	if Input.is_action_just_pressed("interact"):
+		var map_pos = tilemap.local_to_map(position)
+		var iso_facing = Vector2i(0 if facing.x == facing.y else 1 * -sign(facing.y), facing.y)
+		var target_pos = tilemap.local_to_map(position) + iso_facing
+		var cell = tilemap.get_cell_source_id(1, target_pos)
+		print(target_pos - map_pos)
+		if cell != -1:
+			var cell_data = tilemap.get_cell_tile_data(1, target_pos)
+			print(cell_data)
+			var ingredient = cell_data.get_custom_data_by_layer_id(0)
+			if ingredient != null:
+				print(ingredient)
+				$Hand.set_ingredient(ingredient)
 	
