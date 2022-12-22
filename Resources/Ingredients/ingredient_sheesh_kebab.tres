@@ -8,3 +8,4 @@ script = ExtResource("1_0r007")
 ingredient_id = 2
 ingredient_name = "Sheesh Kebab"
 texture = ExtResource("2_kt3ts")
+servable = true

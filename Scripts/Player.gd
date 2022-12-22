@@ -96,15 +96,21 @@ func _input(event):
 			if cell != -1:
 				var cell_data = tilemap.get_cell_tile_data(1, target_pos)
 				var ingredient = cell_data.get_custom_data_by_layer_id(0)
+				
 				if ingredient != null:
-					$Hand.set_ingredient(ingredient)
+					var new_ingredient_entity = IngredientEntity.new()
+					new_ingredient_entity.base = ingredient
+					
+					$Hand.hold_ingredient(new_ingredient_entity)
 				else:
-					var consumer = cell_data.get_custom_data_by_layer_id(1)
-					if consumer != null:
+					var provider = cell_data.get_custom_data_by_layer_id(1)
+					if provider != null:
 						var returned_ingredient = game_map.try_retrieve(target_pos)
-						$Hand.set_ingredient(returned_ingredient)
+						if returned_ingredient != null:
+							$Hand.hold_ingredient(returned_ingredient)
 				
 		else:
-			if game_map.try_consume(target_pos, $Hand.current_ingredient):
-				$Hand.clear()
+			var current_holding = $Hand.clear()
+			if !game_map.try_consume(target_pos, current_holding):
+				$Hand.hold_ingredient(current_holding)
 			

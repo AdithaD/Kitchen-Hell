@@ -23,7 +23,7 @@ func _ready():
 			
 			tile_entity_map[cell] = new_consumer_node
 			
-			$TileEntity.add_child(new_consumer_node)
+			$TileEntities.add_child(new_consumer_node)
 	pass # Replace with function body.
 
 func try_consume(grid_position, ingredient) -> bool:

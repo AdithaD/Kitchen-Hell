@@ -69,8 +69,8 @@ script = ExtResource("3_g4mnw")
 autostart = true
 
 [node name="Map" type="TileMap" parent="."]
-position = Vector2(653, -1441)
 y_sort_enabled = true
+position = Vector2(653, -1441)
 tile_set = SubResource("TileSet_mgng4")
 format = 2
 layer_0/name = "Floor"
@@ -85,9 +85,9 @@ layer_1/tile_data = PackedInt32Array(-589819, 131075, 1, -1310704, 131075, 1, -6
 script = ExtResource("5_ku54d")
 
 [node name="Player" type="Node2D" parent="Map" node_paths=PackedStringArray("tilemap")]
+z_index = 1
 position = Vector2(3586, -1174)
 scale = Vector2(2.5, 2.5)
-z_index = 1
 script = ExtResource("4_f5u7j")
 move_speed = 1000
 tilemap = NodePath("..")
@@ -110,6 +110,8 @@ script = ExtResource("8_rbxpk")
 [node name="Sprite2D" type="Sprite2D" parent="Map/Player/Hand"]
 scale = Vector2(0.4, 0.4)
 
-[node name="TileEntity" type="Node2D" parent="Map"]
+[node name="Holding" type="Node" parent="Map/Player/Hand"]
+
+[node name="TileEntities" type="Node2D" parent="Map"]
 
 [connection signal="timeout" from="Power/PowerDepreciation" to="Power" method="_on_power_depreciation_timeout"]
