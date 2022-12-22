@@ -50,39 +50,7 @@ sources/3 = SubResource("TileSetAtlasSource_ig2v4")
 
 [node name="Game" type="Node2D"]
 
-[node name="Money" type="Node" parent="."]
-script = ExtResource("1_3dl5g")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" type="Control" parent="CanvasLayer"]
-top_level = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PowerGUI" type="ProgressBar" parent="CanvasLayer/GUI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -13.0
-offset_right = 297.0
-offset_bottom = 14.0
-grow_vertical = 0
-rotation = -1.57079
-show_percentage = false
-script = ExtResource("2_mo4mq")
-power_system_path = NodePath("../../../Power")
-
-[node name="Power" type="Node" parent="."]
-script = ExtResource("3_g4mnw")
-
-[node name="Limbo" type="TileMap" parent="."]
+[node name="Limbo" type="TileMap" parent="." groups=["map"]]
 y_sort_enabled = true
 position = Vector2(653, -1441)
 tile_set = SubResource("TileSet_mgng4")
@@ -127,3 +95,35 @@ scale = Vector2(0.4, 0.4)
 [node name="Holding" type="Node" parent="Limbo/Player/Hand"]
 
 [node name="TileEntities" type="Node2D" parent="Limbo"]
+
+[node name="Money" type="Node" parent="."]
+script = ExtResource("1_3dl5g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PowerGUI" type="ProgressBar" parent="CanvasLayer/GUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -13.0
+offset_right = 297.0
+offset_bottom = 14.0
+grow_vertical = 0
+rotation = -1.57079
+show_percentage = false
+script = ExtResource("2_mo4mq")
+power_system_path = NodePath("../../../Power")
+
+[node name="Power" type="Node" parent="."]
+script = ExtResource("3_g4mnw")

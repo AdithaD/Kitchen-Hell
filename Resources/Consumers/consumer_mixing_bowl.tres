@@ -8,4 +8,6 @@ script = ExtResource("1_cy6m8")
 consumer_id = 0
 consumer_name = "Mixing Bowl"
 recipes = [ExtResource("1_rc5uv")]
+max_power_level = null
 base_creation_time = 2.0
+is_appliance = true

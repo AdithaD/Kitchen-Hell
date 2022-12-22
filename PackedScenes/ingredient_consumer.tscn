@@ -8,52 +8,74 @@ script = ExtResource("1_m14jb")
 
 [node name="Control" type="VBoxContainer" parent="."]
 offset_left = -518.0
-offset_top = -644.0
+offset_top = -842.0
 offset_right = 506.0
 offset_bottom = -388.0
 
+[node name="PowerControl" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PowerDecrementButton" type="Button" parent="Control/PowerControl"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 48
+text = "-"
+
+[node name="Control" type="Control" parent="Control/PowerControl"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="PowerLabel" type="Label" parent="Control/PowerControl"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "1"
+
+[node name="Control2" type="Control" parent="Control/PowerControl"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="PowerIncrementButton" type="Button" parent="Control/PowerControl"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 48
+text = "+
+"
+
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 custom_minimum_size = Vector2(0, 80)
-offset_right = 1024.0
-offset_bottom = 80.0
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-offset_top = 84.0
-offset_right = 1024.0
-offset_bottom = 212.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
-offset_left = 250.0
-offset_right = 378.0
-offset_bottom = 128.0
+layout_mode = 2
 size_flags_vertical = 4
 ignore_texture_size = true
 
 [node name="TextureRect2" type="TextureRect" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
-offset_left = 382.0
-offset_right = 510.0
-offset_bottom = 128.0
+layout_mode = 2
 size_flags_vertical = 4
 ignore_texture_size = true
 
 [node name="TextureRect3" type="TextureRect" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
-offset_left = 514.0
-offset_right = 642.0
-offset_bottom = 128.0
+layout_mode = 2
 size_flags_vertical = 4
 ignore_texture_size = true
 
 [node name="TextureRect4" type="TextureRect" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
-offset_left = 646.0
-offset_right = 774.0
-offset_bottom = 128.0
+layout_mode = 2
 size_flags_vertical = 4
 ignore_texture_size = true
 

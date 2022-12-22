@@ -24,8 +24,17 @@ func _ready():
 			tile_entity_map[cell] = new_consumer_node
 			
 			$TileEntities.add_child(new_consumer_node)
+			
 	pass # Replace with function body.
 
+func get_appliances():
+	var appliances =[]
+	for ent in $TileEntities.get_children():
+		if ent.consumer.is_appliance:
+			appliances.append(ent)
+	
+	return appliances
+	
 func try_consume(grid_position, ingredient) -> bool:
 	if tile_entity_map.has(grid_position):
 		return tile_entity_map[grid_position].consume_ingredient(ingredient)

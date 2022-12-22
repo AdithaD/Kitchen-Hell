@@ -6,12 +6,36 @@ extends Node2D
 var grid_position = Vector2.ZERO
 var consumer = null
 
+var power_level = 1
+
 var current_recipe = null
+
+signal power_level_updated(new_power_level: int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Control/PowerControl/PowerDecrementButton.pressed.connect(decrement_power)
+	$Control/PowerControl/PowerIncrementButton.pressed.connect(increment_power)
+	
 	$CookTimer.wait_time = consumer.get_creation_time(0)
 	pass # Replace with function body.
 
+func increment_power():
+	if consumer != null:
+		if power_level + 1 <= consumer.max_power_level:
+			power_level += 1
+			
+			$Control/PowerControl/PowerLabel.text = str(power_level)
+			emit_signal("power_level_updated", power_level)
+	pass
+
+func decrement_power():
+	if consumer != null:
+		if power_level - 1 > 0:
+			power_level -= 1
+			$Control/PowerControl/PowerLabel.text = str(power_level)
+			emit_signal("power_level_updated", power_level)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
