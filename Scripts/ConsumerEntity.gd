@@ -18,6 +18,10 @@ func _ready():
 	$Control/PowerControl/PowerIncrementButton.pressed.connect(increment_power)
 	
 	$CookTimer.wait_time = consumer.get_creation_time(0)
+	
+	if not consumer.is_appliance:
+		$Control/PowerControl.visible = false
+		$Control/ProgressBar.visible = false
 	pass # Replace with function body.
 
 func increment_power():
@@ -48,7 +52,7 @@ func consume_ingredient(ingredient_entity) -> bool:
 	if amnt_of_entities < max_ingredients:
 		$IngredientEntities.add_child(ingredient_entity)
 		
-		texture_rects[amnt_of_entities - 1].texture = ingredient_entity.get_texture()
+		rerender_textures()
 		
 		match_recipes()
 		return true
@@ -57,12 +61,15 @@ func consume_ingredient(ingredient_entity) -> bool:
 
 func rerender_textures():
 	var counter = 0
+	
 	for entity in $IngredientEntities.get_children():
+		texture_rects[counter].visible = true
 		texture_rects[counter].texture = entity.get_texture()
 		counter += 1
 			
-	while counter < max_ingredients:
+	while counter < len(texture_rects):
 		texture_rects[counter].texture = null
+		texture_rects[counter].visible = false
 		counter += 1
 
 func retrieve_ingredient():

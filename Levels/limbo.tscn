@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://drxfy2gu0gy3d"]
+[gd_scene load_steps=15 format=3 uid="uid://drxfy2gu0gy3d"]
 
 [ext_resource type="Script" path="res://Scripts/Currencies.gd" id="1_3dl5g"]
+[ext_resource type="Resource" uid="uid://b6p4aj0tpetak" path="res://Resources/Consumers/consumer_empty.tres" id="1_i1fdj"]
 [ext_resource type="Script" path="res://Levels/PowerGUI.gd" id="2_mo4mq"]
 [ext_resource type="Resource" uid="uid://d2mlel62xmc1x" path="res://Resources/Ingredients/ingredient_eyeball.tres" id="3_aupdq"]
 [ext_resource type="Script" path="res://Scripts/Power.gd" id="3_g4mnw"]
@@ -21,10 +22,13 @@ texture_region_size = Vector2i(512, 512)
 1:0/0/texture_offset = Vector2i(0, -512)
 0:1/0 = 0
 0:1/0/texture_offset = Vector2i(0, 256)
+0:1/0/custom_data_1 = ExtResource("1_i1fdj")
 1:1/0 = 0
 1:1/0/texture_offset = Vector2i(0, 256)
+1:1/0/custom_data_1 = ExtResource("1_i1fdj")
 2:1/0 = 0
 2:1/0/texture_offset = Vector2i(0, 256)
+2:1/0/custom_data_1 = ExtResource("1_i1fdj")
 0:2/size_in_atlas = Vector2i(1, 2)
 0:2/0 = 0
 0:2/0/texture_offset = Vector2i(0, 512)

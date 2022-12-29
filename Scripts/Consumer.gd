@@ -3,10 +3,13 @@ class_name Consumer
 
 @export var consumer_id = 0
 @export var consumer_name = "Consumer"
+
+@export_subgroup("Appliance")
+@export var is_appliance : bool = true
 @export var recipes : Array[Recipe] = []
 @export var max_power_level : int
 @export var base_creation_time = 4.0
-@export var is_appliance : bool = true
+
 
 func _init(p_consumer_id = 0, p_consumer_name = "Consumer", p_recipes = [], p_base_creation_time = 10, p_max_power_level = 3, p_is_appliance = true):
 	consumer_id = p_consumer_id

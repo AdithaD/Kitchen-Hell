@@ -7,10 +7,17 @@ z_index = 100
 script = ExtResource("1_m14jb")
 
 [node name="Control" type="VBoxContainer" parent="."]
-offset_left = -518.0
-offset_top = -842.0
-offset_right = 506.0
-offset_bottom = -388.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -607.0
+offset_right = 274.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PowerControl" type="HBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(0, 80)
@@ -50,9 +57,15 @@ text = "+
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 2
+size_flags_vertical = 8
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
